@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/e2d494fafb.js" crossorigin="anonymous"></script>
+<script src="scripts.js" defer></script>
+<title>Drift | Login</title>
+<link href="favicon.ico" rel="icon">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2b2b2b;
+    animation: fadeIn 0.7s ease-in-out forwards;
+    cursor: default;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#login-form {
+    background-color: #414141;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: 340px;
+    max-width: 80%;
+    text-align: center;
+
+}
+
+.logo {
+    width: 100px; 
+    height: auto;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 img {
+    margin-right: 12px; 
+}
+
+
+
+#login-with-discord-btn {
+    width: calc(100% - 20px);
+    background-color: #7289da;
+    color: white;
+    padding: 14px 0;
+    margin: 10px 0;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px;
+    margin-top: -8px;
+    transition: transform 0.7s ease, box-shadow 0.3s ease;
+}
+
+#login-with-discord-btn:hover{
+  background-color: #6377c0;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-container input {
+    padding-left: 30px; 
+}
+.input-container i {
+    position: absolute;
+    padding-right: 30px;
+    width: 40px;
+    height: auto;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.text1{
+    color: #9c9c9c;
+}
+.text2{
+    margin-top: -26px;
+}
+</style>
+</head>
+<body>
+<div id="login-form">
+    <img src="login-icon-png-1.png" alt="Login Icon" class="logo">
+    <h2 class="text2">Log in to your account!</h2>
+    <button id="login-with-discord-btn" onclick="location.href='https://discord.com/oauth2/authorize?client_id=1224052572369981520&response_type=token&redirect_uri=https%3A%2F%2Fcriadormods.github.io%2FDrift%2Fdashboard.html&scope=identify'">
+        <i class="fab fa-discord"></i> Login with Discord
+    </button>
+</div>
+</body>
+</html>

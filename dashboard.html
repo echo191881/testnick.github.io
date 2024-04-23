@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon2.ico">
+  <title>Dashboard</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Bold', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: rgb(245, 245, 245);
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .user-info {
+        display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .user-info span {
+      font-size: 26px;
+      font-weight: bold;
+      color: #333;
+      margin-left: 5px; 
+    }
+
+    .logout-btn {
+      background-color: rgb(197, 37, 37);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+      margin-left: 190px;
+    }
+
+    .logout-btn:hover {
+      background-color: rgb(219, 40, 9);
+    }
+.text1{ 
+margin-top: -450px;
+}
+.dashboard{
+    background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      width: 100%;
+      transition: transform 0.3s ease;
+}
+
+  </style>
+</head>
+<body>
+  <div>
+    <div class="dashboard">
+    <h1 class="text1" style="font-size: 40px; margin-bottom: 20px;">Welcome to the Dashboard</h1>
+    <div class="user-info">
+      <img src="" id="avatar" class="avatar" alt="Avatar">
+      <span id="name"></span>
+    </div>
+    <a href="https://criadormods.github.io/Drift/" class="logout-btn">Logout</a>
+</div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = () => {
+      const fragment = new URLSearchParams(window.location.hash.slice(1));
+      const accessToken = fragment.get('access_token');
+
+      if (!accessToken) {
+        window.location.href = '/';
+      }
+
+      fetch('https://discord.com/api/users/@me', {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+      .then(result => result.json())
+      .then(response => {
+        const { username, discriminator, avatar, id } = response;
+        document.getElementById('name').innerText = `${username}#${discriminator}`;
+        document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${id}/${avatar}.jpg`;
+      })
+      .catch(console.error);
+    };
+  </script>
+</body>
+</html>
+
+
